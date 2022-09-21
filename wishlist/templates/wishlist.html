@@ -1,23 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h5>Nama: </h5>
+<h5>Nama: 
 <b>{{nama}}</b>
+</h5>
 
-<table>
-    <tr>
+<table bgcolor="black">
+    <tr bgcolor="gray">
     <th>Nama Barang</th>
     <th>Harga Barang</th>
     <th>Deskripsi</th>
     </tr>
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
     {% for barang in list_barang %}
-        <tr>
+        <tr bgcolor="gray">
             <th>{{barang.nama_barang}}</th>
             <th>{{barang.harga_barang}}</th>
             <th>{{barang.deskripsi}}</th>
         </tr>
     {% endfor %}
 </table>
+
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
+<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
+
 
 {% endblock content %}
