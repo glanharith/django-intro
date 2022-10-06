@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render
 from wishlist.models import BarangWishlist
 from django.http import HttpResponse
@@ -24,6 +25,10 @@ def show_wishlist(request):
     'last_login': request.COOKIES['last_login'],
     }
     return render(request, "wishlist.html",context)
+
+def show_ajax_wishlist(request):
+    return render(request, "wishlist_ajax.html")
+
     
 def show_xml(request):
     data = BarangWishlist.objects.all()
